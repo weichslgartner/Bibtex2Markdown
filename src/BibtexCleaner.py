@@ -87,5 +87,5 @@ with open(outputFile, 'w') as markdown_file:
         if entry[0] not in year_list:
             markdown_file.write("## {}\n".format(entry[0]))
             year_list.append(entry[0])
-        markdown_file.write("{}\n".format(entry[1]))
+        markdown_file.write("{}\n\n".format(entry[1]))
  #   bibtexparser.dump(bib_database, bibfile)
