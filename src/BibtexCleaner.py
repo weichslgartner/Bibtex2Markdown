@@ -30,12 +30,14 @@ str_convert_list = [("""{\\"a}""","ä"),
     ]
 
 def convert_authors(author_str):
-    
+    author_new = ""
     if "," in  author_str:
-        m = re.match("(\w+), (\w+)", author_str)
-        author_str = "{} {}" .format(m.group(2), m.group(1))
-    author_str = author_str.replace(" and ", ", ")
-    return author_str
+        results = re.findall("(\w+), (\w+)", author_str)
+        for i,m in enumerate(results):
+            author_new += "{} {}" .format(m[1], m[0])
+            if i < len(results)-1:
+             author_new += ", "
+    return author_new
     
     
 def convert_bibtex_special_char_to_unicode(bibtex_str):
