@@ -1,4 +1,11 @@
+## 2018
+Andreas Weichslgartner, Stefan Wildermann, Michael Glaß, Jürgen Teich: **Invasive Computing for Mapping Parallel Programs to Many-Core Architectures.** Pages 1-185. Springer Singapore. 2018. To appear.
+
 ## 2017
+Tobias Schwarzer,Andreas Weichslgartner,Michael Glaß,Stefan Wildermann,Peter Brand,Jürgen Teich: **Symmetry-eliminating Design Space Exploration for Hybrid Application Mapping on Many-Core Architectures.** IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, pp. 1-14. IEEE. 2017.
+
+Aurang Zaib, Jan Heisswolf, Andreas Weichslgartner, Thomas Wild, Jürgen Teich, Jürgen Becker, Andreas Herkersdorf: **Efficient Task Spawning for Shared Memory and Message Passing in Many-core Architectures.** Journal of Systems Architecture (JSA), pp. 72 - 82. Elsevier GmbH. 2017.
+
 Andreas Weichslgartner: **Application Mapping Methodologies for Invasive NoC-Based Architectures.** Hardware/Software Co-Design, Department of Computer Science, Friedrich-Alexander-Universität Erlangen-Nürnberg, Germany. 2017.
 
 ## 2016
