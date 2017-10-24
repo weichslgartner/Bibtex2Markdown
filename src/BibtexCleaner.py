@@ -37,6 +37,8 @@ def convert_authors(author_str):
             author_new += "{} {}" .format(m[1], m[0])
             if i < len(results)-1:
              author_new += ", "
+    else:
+        author_new = author_str.replace(" and ", ",")
     return author_new
     
     
