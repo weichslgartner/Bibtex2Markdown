@@ -11,6 +11,14 @@ from bibtexparser.bwriter import BibTexWriter
 
 inputfile = "../bib/me.bib"
 outputFile = "../bib/me.md"
+
+file_header = """---
+layout: page
+title: Publications
+subtitle: List of Academic Writing
+---
+"""
+
 str_convert_list = [("""{\\"a}""","ä"),
                     ("""\\"a""","ä"),
                     ("""\\"{a}""","ä"),
@@ -38,7 +46,7 @@ def convert_authors(author_str):
             if i < len(results)-1:
              author_new += ", "
     else:
-        author_new = author_str.replace(" and ", ",")
+        author_new = author_str.replace(" and ", ", ")
     return author_new
     
     
@@ -93,6 +101,7 @@ with open(inputfile) as bibtex_file:
 with open(outputFile, 'w') as markdown_file:
     year_list = []
     markdown_file
+    markdown_file.write(file_header)
     for entry in sorted(converted_entries, reverse = True):
         if entry[0] not in year_list:
             markdown_file.write("## {}\n".format(entry[0]))
