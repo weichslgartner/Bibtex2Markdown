@@ -60,26 +60,29 @@ def convert_entry(entry):
     author = convert_authors(convert_bibtex_special_char_to_unicode (entry['author'])) 
     title = convert_bibtex_special_char_to_unicode (entry['title'])
     booktitle = ""
+    link = ""
     if 'booktitle' in entry:
         booktitle = entry['booktitle']
     elif 'journal' in entry:
         booktitle = entry['journal']
     pages = ""
+    if 'link' in entry:
+        link = entry['link']
     if 'pages' in entry:
         pages = entry['pages']
     if entry['ENTRYTYPE'] == 'phdthesis':
-        entry_string = "<sub>Dissertation</sub>     \r\n{0}: **{1}.** {2}. {3}." .format(author, title, entry['school'], entry['year'])
+        entry_string = "<sub>Dissertation</sub>     \r\n{0}: **{1}.** {2}. {3}. [Link]({4})" .format(author, title, entry['school'], entry['year'],link)
     #'ENTRYTYPE': 'article' , inproceedings, conference, phdthesis
     elif entry['ENTRYTYPE'] == 'book':
-        entry_string = "<sub>Book</sub>   \r\n{0}: **{1}.** Pages {2}. {3}. {4}." .format(author, title, pages, entry['publisher'], entry['year'])
+        entry_string = "<sub>Book</sub>   \r\n{0}: **{1}.** Pages {2}. {3}. {4}. [Link]({5})" .format(author, title, pages, entry['publisher'], entry['year'],link)
 
     elif entry['ENTRYTYPE'] == 'article' or entry['ENTRYTYPE'] == 'ARTICLE':
-        entry_string = "<sub>Journal article</sub>   \r\n{0}: **{1}.** {2}, pp. {3}. {4}. {5}." .format(author, title, booktitle, pages, entry['publisher'], entry['year'])
+        entry_string = "<sub>Journal article</sub>   \r\n{0}: **{1}.** {2}, pp. {3}. {4}. {5}. [Link]({6})" .format(author, title, booktitle, pages, entry['publisher'], entry['year'],link)
 
     elif entry['ENTRYTYPE'] == 'inproceedings' or entry['ENTRYTYPE'] == 'conference':
-        entry_string = "<sub>Conference paper</sub>   \r\n{0}: **{1}.**  In {2}, pp. {3}. {4}." .format(author, title, booktitle, pages, entry['year'])
+        entry_string = "<sub>Conference paper</sub>   \r\n{0}: **{1}.**  In {2}, pp. {3}. {4}. [Link]({5})" .format(author, title, booktitle, pages, entry['year'],link)
     else:
-        entry_string = "{0}: **{1}.**  Pages {2}. {3}." .format(author, title, pages, entry['year'])
+        entry_string = "{0}: **{1}.**  Pages {2}. {3}. [Link]({4})" .format(author, title, pages, entry['year'],link)
 
     if 'note' in entry:
         entry_string += " {}." .format(entry['note'])
